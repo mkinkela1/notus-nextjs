@@ -1,17 +1,13 @@
-import React from "react";
+import React, { ReactElement } from "react";
+import Admin from "@layouts/Admin";
+import { NextPageWithLayout } from "@pages/_app";
 
-// components
+import CardLineChart from "@components/Cards/CardLineChart";
+import CardBarChart from "@components/Cards/CardBarChart";
+import CardPageVisits from "@components/Cards/CardPageVisits";
+import CardSocialTraffic from "@components/Cards/CardSocialTraffic";
 
-import CardLineChart from "components/Cards/CardLineChart.js";
-import CardBarChart from "components/Cards/CardBarChart.js";
-import CardPageVisits from "components/Cards/CardPageVisits.js";
-import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
-
-// layout for page
-
-import Admin from "layouts/Admin.js";
-
-export default function Dashboard() {
+const Dashboard: NextPageWithLayout = () => {
   return (
     <>
       <div className="flex flex-wrap">
@@ -32,6 +28,8 @@ export default function Dashboard() {
       </div>
     </>
   );
-}
+};
 
-Dashboard.layout = Admin;
+Dashboard.getLayout = (page: ReactElement) => <Admin>{page}</Admin>;
+
+export default Dashboard;

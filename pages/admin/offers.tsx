@@ -63,8 +63,13 @@ const Offers: NextPageWithLayout = () => {
             data={data}
             tableName={"Offers"}
             rowActions={[
-              { label: "Edit", onClick: () => console.log("bla") },
               {
+                icon: <i className="fas fa-pen" />,
+                label: "Edit",
+                onClick: () => console.log("bla"),
+              },
+              {
+                icon: <i className="fas fa-trash" />,
                 label: "Delete",
                 onClick: () => console.log("delete"),
               },

@@ -1,13 +1,37 @@
 import React, { LegacyRef, useEffect, useRef, useState } from "react";
 import { createPopper } from "@popperjs/core";
+import { IRowActions } from "@components/Table/Table";
+import styled from "styled-components";
+import Flex from "@components/Flex";
 
-const TableDropdown = () => {
+interface IProps {
+  id: string;
+  rowActions?: IRowActions[];
+}
+
+const DropdownLink = styled.li`
+  background: #fff;
+  &:hover {
+    background: rgba(241, 245, 249);
+    cursor: pointer;
+  }
+  & > div {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    color: rgba(51, 65, 85);
+    white-space: nowrap;
+  }
+`;
+
+const TableDropdown: React.FC<IProps> = ({ rowActions, id }) => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
 
   const container = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  console.log(dropdownPopoverShow);
 
   useEffect(() => {
     document.addEventListener("click", handleDocumentClick);
@@ -65,33 +89,22 @@ const TableDropdown = () => {
           "bg-white text-base float-left py-2 list-none text-left rounded shadow-lg min-w-48 absolute"
         }
       >
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700 hover:text-yellow-900"
-          }
-          onClick={(e) => alert("1")}
-        >
-          Action
-        </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => alert("2")}
-        >
-          Another action
-        </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => alert("3")}
-        >
-          Something else here
-        </a>
+        {rowActions.map(({ label, onClick, icon }, index) => (
+          <DropdownLink key={index}>
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+                onClick(id);
+                setDropdownPopoverShow(false);
+              }}
+            >
+              <Flex gap={10} alignItems="center">
+                {icon}
+                {label}
+              </Flex>
+            </div>
+          </DropdownLink>
+        ))}
       </div>
     </div>
   );

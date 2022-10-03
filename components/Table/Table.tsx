@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, Row, useTable } from "react-table";
+import { Column, useTable } from "react-table";
 import TableDropdown from "@components/Dropdowns/TableDropdown";
 
 type Color = "light" | "dark";
@@ -8,9 +8,10 @@ interface IRow {
   id: string;
 }
 
-interface IRowActions<T extends IRow> {
-  label?: string;
-  onClick?: (row: Row<T>) => void;
+export interface IRowActions {
+  icon?: React.ReactNode;
+  label?: React.ReactNode | string;
+  onClick?: (id: string) => void;
 }
 
 interface IProps<T extends IRow> {
@@ -18,7 +19,7 @@ interface IProps<T extends IRow> {
   color?: Color;
   columns: Column<T>[];
   data: T[];
-  rowActions?: IRowActions<T>[];
+  rowActions?: IRowActions[];
 }
 
 export default function Table<T extends IRow>({
@@ -104,7 +105,7 @@ export default function Table<T extends IRow>({
                     })}
                     {rowActions && (
                       <th>
-                        <TableDropdown />
+                        <TableDropdown id={row.id} rowActions={rowActions} />
                       </th>
                     )}
                   </tr>

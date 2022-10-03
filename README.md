@@ -152,20 +152,20 @@ notus-nextjs
 │   │   ├── CardProfile.js
 │   │   ├── CardSettings.js
 │   │   ├── CardSocialTraffic.js
-│   │   ├── CardStats.js
-│   │   └── CardTable.tsx
+│   │   ├── CardStats.tsx
+│   │   └── Table.tsx
 │   ├── Dropdowns
 │   │   ├── IndexDropdown.js
 │   │   ├── NotificationDropdown.js
 │   │   ├── PagesDropdown.js
-│   │   ├── TableDropdown.js
+│   │   ├── TableDropdown.tsx
 │   │   └── UserDropdown.js
 │   ├── Footers
 │   │   ├── Footer.js
 │   │   ├── FooterAdmin.js
 │   │   └── FooterSmall.js
 │   ├── Headers
-│   │   └── HeaderStats.js
+│   │   └── HeaderStats.tsx
 │   ├── Maps
 │   │   └── MapExample.js
 │   ├── Navbars

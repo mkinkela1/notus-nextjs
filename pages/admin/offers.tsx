@@ -1,29 +1,75 @@
 import React, { ReactElement } from "react";
 import Admin from "@layouts/Admin";
 import { NextPageWithLayout } from "@pages/_app";
-
-import CardLineChart from "@components/Cards/CardLineChart";
-import CardBarChart from "@components/Cards/CardBarChart";
-import CardPageVisits from "@components/Cards/CardPageVisits";
-import CardSocialTraffic from "@components/Cards/CardSocialTraffic";
+import ToggleCell from "@components/Table/cells/ToggleCell";
+import Table from "@components/Table/Table";
 
 const Offers: NextPageWithLayout = () => {
+  const data = React.useMemo(
+    () => [
+      {
+        id: "2008051",
+        name: "usluga šivanja",
+        accepted: true,
+        date: "06.08.2020.",
+      },
+      {
+        id: "1",
+        name: "Hello",
+        accepted: "World",
+        date: "World",
+      },
+      {
+        id: "1",
+        name: "Hello",
+        accepted: "World",
+        date: "World",
+      },
+    ],
+    []
+  );
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: "Broj ponude",
+        accessor: "id",
+      },
+      {
+        Header: "Naziv",
+        accessor: "name",
+      },
+      {
+        Header: "Ponuda prihvacena",
+        accessor: "accepted",
+        Cell: (row) => (
+          <ToggleCell value={row.accepted} onChange={() => alert("sljaka")} />
+        ),
+      },
+      {
+        Header: "Datum izrade",
+        accessor: "date",
+      },
+    ],
+    []
+  );
+
   return (
     <>
-      <div className="flex flex-wrap">
-        <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-          <CardLineChart />
-        </div>
-        <div className="w-full xl:w-4/12 px-4">
-          <CardBarChart />
-        </div>
-      </div>
       <div className="flex flex-wrap mt-4">
-        <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-          <CardPageVisits />
-        </div>
-        <div className="w-full xl:w-4/12 px-4">
-          <CardSocialTraffic />
+        <div className="w-full mb-12 px-4">
+          <Table
+            columns={columns}
+            data={data}
+            tableName={"Offers"}
+            rowActions={[
+              { label: "Edit", onClick: () => console.log("bla") },
+              {
+                label: "Delete",
+                onClick: () => console.log("delete"),
+              },
+            ]}
+          />
         </div>
       </div>
     </>

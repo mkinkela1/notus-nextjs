@@ -9,6 +9,7 @@
     "@fortawesome/fontawesome-free": "5.15.3",
     "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.11",
+    "@hookform/resolvers": "^2.9.8",
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",
     "chart.js": "2.9.4",
@@ -17,11 +18,13 @@
     "next": "^12.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1",
     "react-scripts": "4.0.3",
     "react-select": "^5.4.0",
     "react-table": "^7.8.0",
     "styled-components": "^5.3.6",
-    "tailwindcss": "2.0.4"
+    "tailwindcss": "2.0.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "next start",

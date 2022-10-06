@@ -16,13 +16,13 @@ const Offers: NextPageWithLayout = () => {
       {
         id: "1",
         name: "Hello",
-        accepted: "World",
+        accepted: false,
         date: "World",
       },
       {
         id: "1",
         name: "Hello",
-        accepted: "World",
+        accepted: false,
         date: "World",
       },
     ],

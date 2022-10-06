@@ -170,15 +170,15 @@ notus-nextjs
 │   │   └── MapExample.js
 │   ├── Navbars
 │   │   ├── AdminNavbar.js
-│   │   ├── AuthNavbar.js
-│   │   └── IndexNavbar.js
+│   │   ├── AuthNavbar.tsx
+│   │   └── IndexNavbar.tsx
 │   ├── PageChange
 │   │   └── PageChange.tsx
 │   └── Sidebar
 │       └── Sidebar.tsx
 ├── layouts
 │   ├── Admin.tsx
-│   └── Auth.js
+│   └── Auth.tsx
 ├── next.config.js
 ├── package.json
 ├── pages
@@ -192,7 +192,7 @@ notus-nextjs
 │   │   ├── settings.js
 │   │   └── tables.tsx
 │   ├── auth
-│   │   ├── login.js
+│   │   ├── login.tsx
 │   │   └── register.js
 │   ├── index.tsx
 │   ├── landing.tsx
